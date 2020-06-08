@@ -143,10 +143,10 @@ def simulate(r, param):
             logV = sum(l[:e-1]) - sum(l̂[:k])
             if tau:
                 X = random.expovariate(.5)
-                g = (log(X) + logV) / d + c[d - 1]
+                g = (log(X, 2) + logV) / d + c[d - 1]
                 if g < l[k]:
                     l̂[k] = g
-                    l̂[k+1] = l[k] + log(sqrt(1-1./d))
+                    l̂[k+1] = l[k] + log(sqrt(1-1./d), 2)
                     γ = (l[k] + l[k+1]) - (l̂[k] + l̂[k+1])
                     for kp in range(k+2, e):
                         l̂[kp] = l[kp] + γ/(d-2.)
