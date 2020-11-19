@@ -21,4 +21,4 @@ cn11 = CN11_simulate(M, BKZ.Param(block_size=block_size, max_loops=max_loops))
 bsw18 = BSW18.simulate(M, BKZ.Param(block_size=block_size, max_loops=max_loops))
 g = line([(i, log(cn11[0][i])/2 - log(q)/2) for i in range(len(cn11[0]))]) \
     + line([(i, log(bsw18[0][i])/2 - log(q)/2) for i in range(len(bsw18[0]))], color='red')
-save(g, "test.png")
+save(g, "test.png", dpi=150)
