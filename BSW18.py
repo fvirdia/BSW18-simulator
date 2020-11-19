@@ -76,7 +76,7 @@ rk = (
 )
 
 
-def simulate(r, param):
+def simulate(r, param, prng_seed=0xdeadbeef):
     """
     BKZ simulation algorithm as proposed by Bai and Stehlé and Wen in "Measuring, simulating and
     exploiting the head concavity phenomenon in BKZ".  Returns the reduced squared norms of the
@@ -105,7 +105,10 @@ def simulate(r, param):
 
     """
 
-    random.seed(FPLLL.randint(0, 2**32-1))
+    if not prng_seed:
+        prng_seed = FPLLL.randint(0, 2**32-1)
+
+    random.seed(prng_seed)
 
     if isinstance(r, IntegerMatrix):
         r = GSO.Mat(r)
@@ -184,3 +187,24 @@ def simulate(r, param):
 
     l = list(map(lambda x: 2.0 ** (2 * x), l))
     return l, j + 1
+
+
+def averaged_simulate(L, params_fplll, tries=10):
+
+    if tries < 1:
+        raise ValueError("Need to average over positive number of tries.")
+
+    from sage.all import vector, RR
+
+    for _ in range(tries):
+        x, y = simulate(L, params_fplll, prng_seed=_+1)
+        if _ == 0:
+            i = vector(RR, x)
+            j = y
+        else:
+            i += vector(RR, x)
+            j += y
+
+    res = (i/tries, j/tries)
+    return res
+
