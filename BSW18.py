@@ -190,7 +190,13 @@ def simulate(r, param, prng_seed=0xdeadbeef):
 
 
 def averaged_simulate(L, params_fplll, tries=10):
+    """ This wrapper calls the [BSW18] probabilistic BKZ simulator with different
+    PRNG seeds, and returns the average output.
 
+    :param r: squared norms of the GSO vectors of the basis.
+    :param params_fplll: BKZ parameters
+    :tries: number of iterations to average over. Default: 10
+    """
     if tries < 1:
         raise ValueError("Need to average over positive number of tries.")
 
@@ -207,4 +213,3 @@ def averaged_simulate(L, params_fplll, tries=10):
 
     res = (i/tries, j/tries)
     return res
-
