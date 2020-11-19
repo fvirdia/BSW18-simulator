@@ -60,7 +60,7 @@ rk = (
 
 def simulate(r, param, prng_seed=0xdeadbeef):
     """
-    Wraps original BSW18 simulator for ease of comparision.
+    Wraps original BSW18 simulator for ease of comparison.
     """
     if not prng_seed:
         prng_seed = FPLLL.randint(0, 2**32-1)
@@ -87,7 +87,7 @@ def simulate(r, param, prng_seed=0xdeadbeef):
     # l1 = probabilistic_bkz_simulator.bkz_simulation_stochastic(
     #       l, param.block_size, N, original.rk_ln)
 
-    # using rk from this file -- more direct comparision, essentially the same
+    # using rk from this file -- more direct comparison, essentially the same
     log2_e = log(exp(1), 2)
     l1 = probabilistic_bkz_simulator.bkz_simulation_stochastic(
         l, param.block_size, N, list(map(lambda x: x / log2_e, rk)))
