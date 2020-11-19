@@ -1,7 +1,7 @@
 # BSW18 simulator
 
 This repository contains an implementation of the BKZ simulator proposed in
-> _Measuring, simulating andexploiting the head concavity phenomenon in BKZ_
+> _Measuring, simulating andexploiting the head concavity phenomenon in BKZ_  
 > Shi Bai, Damien Stehlé, and Weiqiang Wen. ASIACRYPT 2018
 
 It follows the API used by FPyLLL's implementation of the [CN11] simulator, to allow easier integration.
