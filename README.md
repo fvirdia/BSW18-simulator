@@ -1,5 +1,7 @@
 # BSW18 simulator
 
+**An improved version of this simulator has become [part](https://github.com/fplll/fpylll/blob/master/src/fpylll/tools/bkz_simulator.py) of [fpylll](https://github.com/fplll/fpylll), and should be preferred to the code in this repository.**
+
 This repository contains an implementation of the BKZ simulator proposed in
 > _Measuring, simulating andexploiting the head concavity phenomenon in BKZ_  
 > Shi Bai, Damien Stehlé, and Weiqiang Wen. ASIACRYPT 2018
